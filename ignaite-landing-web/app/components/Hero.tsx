@@ -93,45 +93,89 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[300px] md:h-[400px] flex items-center justify-center"
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
+            className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center"
           >
             <div className="relative w-full h-full">
+              {/* Primary glow effect */}
               <motion.div 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-full bg-primary/20 blur-xl"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-primary/20 blur-2xl"
                 animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.6, 0.8, 0.6],
+                  scale: [1, 1.3, 1],
+                  opacity: [0.4, 0.7, 0.4],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }}
+              />
+              
+              {/* Secondary glow effect */}
+              <motion.div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full bg-primary/10 blur-3xl"
+                animate={{ 
+                  scale: [1.2, 0.8, 1.2],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut"
+                }}
+              />
+
+              {/* Outer rotating ring */}
+              <motion.div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="w-72 h-72 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] border-2 border-primary/20 rounded-full" />
+              </motion.div>
+
+              {/* Middle rotating ring */}
+              <motion.div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="w-56 h-56 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px] border border-primary/30 rounded-full" />
+              </motion.div>
+
+              {/* Inner rotating ring */}
+              <motion.div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="w-40 h-40 md:w-64 md:h-64 lg:w-[300px] lg:h-[300px] border border-primary/40 rounded-full" />
+              </motion.div>
+
+              {/* Logo container */}
+              <motion.div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  filter: ["brightness(0.9)", "brightness(1.1)", "brightness(0.9)"]
                 }}
                 transition={{
                   duration: 4,
                   repeat: Infinity,
                   repeatType: "reverse",
+                  ease: "easeInOut"
                 }}
-              />
-              <motion.div 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
               >
-                <div className="w-32 h-32 md:w-40 md:h-40 border border-primary/40 rounded-full" />
-              </motion.div>
-              <motion.div 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="w-48 h-48 md:w-60 md:h-60 border border-primary/30 rounded-full" />
-              </motion.div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <Image 
                   src="/logo/logo.png" 
                   alt="Ignaite Labs Logo" 
-                  width={240}
-                  height={100}
-                  className="opacity-90"
+                  width={300}
+                  height={125}
+                  className="opacity-95 drop-shadow-2xl"
                 />
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
