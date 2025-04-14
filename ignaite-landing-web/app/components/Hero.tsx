@@ -127,8 +127,8 @@ export default function Hero() {
                 <Image 
                   src="/logo/logo.png" 
                   alt="Ignaite Labs Logo" 
-                  width={200}
-                  height={80}
+                  width={240}
+                  height={100}
                   className="opacity-90"
                 />
               </div>
