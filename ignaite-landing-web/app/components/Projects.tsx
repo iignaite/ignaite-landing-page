@@ -9,7 +9,7 @@ const projects = [
     title: 'AI Pilipinas Platform',
     category: 'Enterprise Web Application',
     description: 'A comprehensive platform showcasing AI initiatives and resources in the Philippines. Built with enterprise-grade architecture and modern technologies to ensure scalability, performance, and security.',
-    image: 'https://images.unsplash.com/photo-1677442135144-e057f9e55fae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX477ofKVC_yLcCfYMuI4oNpZPfv3nxeDWHg&s',
     tags: ['Next.js', 'React', 'Tailwind CSS', 'ExpressJS', 'PostgreSQL', 'AI Integration', 'Enterprise Architecture'],
     url: 'https://staging.aipilipinas.org/',
     features: [
