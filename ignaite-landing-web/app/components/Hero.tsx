@@ -10,36 +10,183 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent z-0" />
       
       <div className="absolute inset-0 z-0">
-        {[...Array(20)].map((_, i) => (
+        {/* Background particles that flow across the header */}
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 rounded-full bg-primary/30"
             initial={{
-              x: Math.random() * 100 - 50 + '%',
-              y: Math.random() * 100 - 50 + '%',
-              opacity: Math.random() * 0.5 + 0.3,
-              scale: Math.random() * 1 + 0.5,
+              x: `${Math.random() * 100}%`,
+              y: `${Math.random() * 100}%`,
+              opacity: Math.random() * 0.4 + 0.3,
+              scale: Math.random() * 0.8 + 0.5,
             }}
             animate={{
               x: [
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%',
+                `${Math.random() * 10}%`,
+                `${Math.random() * 90 + 10}%`,
+                `${Math.random() * 10}%`,
               ],
               y: [
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%',
-                Math.random() * 100 - 50 + '%',
+                `${Math.random() * 10}%`,
+                `${Math.random() * 90 + 10}%`,
+                `${Math.random() * 10}%`,
               ],
-              opacity: [Math.random() * 0.5 + 0.3, Math.random() * 0.5 + 0.3],
+              opacity: [Math.random() * 0.4 + 0.3, Math.random() * 0.4 + 0.3],
             }}
             transition={{
-              duration: Math.random() * 20 + 20,
+              duration: Math.random() * 15 + 10,
               repeat: Infinity,
-              repeatType: 'reverse',
+              repeatType: "mirror",
+              ease: "easeInOut",
             }}
           />
         ))}
+        
+        {/* Flowing dots that move horizontally across the screen */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`flow-${i}`}
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/40"
+            initial={{
+              x: "-5%",
+              y: `${10 + i * 10}%`,
+              opacity: 0.5,
+            }}
+            animate={{
+              x: ["-5%", "105%", "-5%"],
+              y: [`${10 + i * 10}%`, `${15 + i * 10}%`, `${10 + i * 10}%`],
+              opacity: [0, 0.7, 0],
+            }}
+            transition={{
+              duration: 15 + i * 2,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 1.5,
+            }}
+          />
+        ))}
+        
+        {/* Diagonal flowing dots */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`diag-${i}`}
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/30"
+            initial={{
+              x: "0%",
+              y: "0%",
+              opacity: 0.4,
+            }}
+            animate={{
+              x: ["0%", "100%", "0%"],
+              y: ["0%", "100%", "0%"],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{
+              duration: 20 + i * 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2,
+            }}
+          />
+        ))}
+        
+        {/* Reverse diagonal flowing dots */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`rev-diag-${i}`}
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/30"
+            initial={{
+              x: "100%",
+              y: "0%",
+              opacity: 0.4,
+            }}
+            animate={{
+              x: ["100%", "0%", "100%"],
+              y: ["0%", "100%", "0%"],
+              opacity: [0, 0.6, 0],
+            }}
+            transition={{
+              duration: 18 + i * 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2.5,
+            }}
+          />
+        ))}
+
+        {/* Main orange floating dot */}
+        <motion.div
+          className="absolute w-16 h-16 rounded-full bg-orange-500/80 blur-sm z-10"
+          initial={{
+            x: "65%",
+            y: "40%",
+            opacity: 0.8,
+          }}
+          animate={{
+            x: ["65%", "70%", "62%", "68%", "65%"],
+            y: ["40%", "35%", "42%", "38%", "40%"],
+            scale: [1, 1.2, 0.9, 1.1, 1],
+            opacity: [0.7, 0.9, 0.7, 0.8, 0.7],
+            boxShadow: [
+              "0 0 20px 10px rgba(249, 115, 22, 0.3)",
+              "0 0 30px 15px rgba(249, 115, 22, 0.4)",
+              "0 0 25px 5px rgba(249, 115, 22, 0.2)",
+              "0 0 35px 15px rgba(249, 115, 22, 0.5)",
+              "0 0 20px 10px rgba(249, 115, 22, 0.3)",
+            ],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+        
+        {/* Secondary orange dot */}
+        <motion.div
+          className="absolute w-10 h-10 rounded-full bg-orange-400/60 blur-sm"
+          initial={{
+            x: "30%",
+            y: "65%",
+            opacity: 0.6,
+          }}
+          animate={{
+            x: ["30%", "33%", "28%", "35%", "30%"],
+            y: ["65%", "62%", "68%", "63%", "65%"],
+            scale: [1, 1.3, 0.8, 1.2, 1],
+            opacity: [0.5, 0.7, 0.4, 0.6, 0.5],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Small tertiary orange dot */}
+        <motion.div
+          className="absolute w-6 h-6 rounded-full bg-orange-300/50 blur-sm"
+          initial={{
+            x: "75%",
+            y: "75%",
+            opacity: 0.5,
+          }}
+          animate={{
+            x: ["75%", "73%", "77%", "72%", "75%"],
+            y: ["75%", "72%", "76%", "73%", "75%"],
+            scale: [1, 1.4, 0.9, 1.3, 1],
+            opacity: [0.4, 0.6, 0.3, 0.5, 0.4],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 z-10 mt-24 sm:mt-0">
@@ -65,8 +212,15 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Ignaite Labs is a development agency committed to bringing your ideas to life with innovative solutions and cutting-edge technology.
+                Ignaite Labs is a development agency led by enterprise-experienced professionals, delivering innovative solutions with advanced technical expertise.
               </motion.p>
+            </div>
+            
+            <div className="flex items-start space-x-2 mt-2">
+              
+              <div className="bg-primary/10 px-3 py-1.5 rounded-full text-sm">
+                <span className="text-primary font-medium">Technical Excellence</span>
+              </div>
             </div>
             
             <motion.div 
